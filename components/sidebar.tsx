@@ -1,9 +1,9 @@
 'use client';
 
+import { Montserrat } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Montserrat } from 'next/font/google';
-import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
 import {
   Code,
   ImageIcon,
@@ -13,7 +13,9 @@ import {
   Settings,
   VideoIcon,
 } from 'lucide-react';
-import { usePathname } from 'next/navigation';
+
+import { cn } from '@/lib/utils';
+import FreeCounter from '@/components/free-counter';
 
 const montserrat = Montserrat({
   weight: '600',
@@ -64,11 +66,16 @@ const routes = [
   },
 ];
 
-const Sidebar = () => {
+interface SidebarProps {
+  apiLimitCount: number;
+  isPro: boolean;
+}
+
+const Sidebar = ({ apiLimitCount = 0, isPro = false }: SidebarProps) => {
   const pathname = usePathname();
 
   return (
-    <div className='space-y-4 py-4 flex flex-col h-full bg-[#111827] text-white'>
+    <div className='space-y-4 py-4 flex flex-col h-full bg-[#111827] text-white border-r-0'>
       <div className='px-3 py-2 flex-1'>
         <Link
           href='/dashboard'
@@ -101,6 +108,10 @@ const Sidebar = () => {
           ))}
         </div>
       </div>
+      <FreeCounter
+        apiLimitCount={apiLimitCount}
+        isPro={isPro}
+      />
     </div>
   );
 };

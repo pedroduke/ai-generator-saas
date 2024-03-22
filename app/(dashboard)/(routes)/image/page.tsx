@@ -6,22 +6,29 @@ import { Download, ImageIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { useState } from 'react';
 
 import Heading from '@/components/heading';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger } from '@/components/ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Empty } from '@/components/empty';
 import { Loader } from '@/components/loarder';
+import { Card, CardFooter } from '@/components/ui/card';
 
 import { amountOptions, formSchema, resolutionOptions } from './constants';
-import { SelectValue } from '@radix-ui/react-select';
-import { Card, CardFooter } from '@/components/ui/card';
-import Image from 'next/image';
+import { useProModal } from '@/hooks/use-pro-modal';
 
 const ImagePage = () => {
+  const proModal = useProModal();
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
 
@@ -45,8 +52,9 @@ const ImagePage = () => {
       setImages(urls);
       form.reset();
     } catch (error: any) {
-      // TODO: Open Pro Modal
-      console.log(error);
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }
