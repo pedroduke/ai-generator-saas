@@ -28,12 +28,12 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](https://ai-generator-saas-omega.vercel.app/) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Learn More
 
 This project was developed for demo purpose.
 
-You can visit the [Live Demo](http://localhost:3000) and try out the application. You can login with Clerk with you google account and start try around the different AI tools. There is 5 credits to try the application for free for each user.
+You can visit the [Live Demo](https://ai-generator-saas-omega.vercel.app/) and try out the application. You can login with Clerk with you google account and start try around the different AI tools. There is 5 credits to try the application for free for each user.
 
 If you have any questions or would like to know more please contact me: pedroduke_dev@gmail.com
