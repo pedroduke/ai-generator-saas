@@ -1,5 +1,6 @@
 'use client';
 
+import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useState } from 'react';
 import { Check, Zap } from 'lucide-react';
@@ -31,7 +32,7 @@ export const ProModal = () => {
 
       window.location.href = response.data.url;
     } catch (error) {
-      console.log(error, 'STRIPE_CLIENT_ERROR');
+      toast.error('Something went wrong');
     } finally {
       setLoading(false);
     }
@@ -74,6 +75,7 @@ export const ProModal = () => {
         </DialogHeader>
         <DialogFooter>
           <Button
+            disabled={loading}
             onClick={onSubscribe}
             size='lg'
             variant='premium'
