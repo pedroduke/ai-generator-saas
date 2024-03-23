@@ -16,7 +16,7 @@
 
 ## Getting Started
 
-<strong>Visit the [Live Demo](http://localhost:3000)</strong>
+<strong>Visit the [Live Demo](https://ai-generator-saas-ashy.vercel.app)</strong>
 
 First, run the development server:
 
@@ -28,7 +28,7 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](https://ai-generator-saas-ashy.vercel.app) with your browser to see the result.
 
 ## Learn More
 
