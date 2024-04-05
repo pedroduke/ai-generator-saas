@@ -1,3 +1,7 @@
+# Génie
+
+Is an AI Saas application that allows user to generate converstations, code, images, videos, and audio.
+
 ## Tech Stack
 
 <strong>Next.js 14 & React</strong>
